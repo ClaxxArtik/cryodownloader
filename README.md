@@ -5,13 +5,4 @@ A Python Media Downloader that uses yt-dlp to download any media, with Tkinter a
 Right now, for this program to work, you need to manually install [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://ffmpeg.org/download.html#build-windows), and execute app.py.
 
 This project uses the libraries: tkinter and yt-dlp
-
-
-
-# Planned Changes:
-- Open folder
-- Create audio and video files if they don't exist
-- Requirements file
-- Executable app
-- Send downl
   
