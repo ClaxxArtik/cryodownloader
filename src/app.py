@@ -6,7 +6,7 @@ from tkinter import ttk
 root = tk.Tk()
 root.geometry('900x600')
 root.resizable(False, False)
-root.title('Button Demo')
+root.title('CryoDownloader')
 
 main_text = ttk.Label(root, text='Youtube URL:')
 main_text.pack()
@@ -14,7 +14,7 @@ main_text.pack()
 url_entry = ttk.Entry(root, width=40)
 url_entry.pack(pady=10)
 
-# exit button
+# audio button
 mp3_button = ttk.Button(
     root,
     text='Download Audio',
@@ -29,6 +29,7 @@ mp3_button.pack(
     expand=True
 )
 
+# video button
 mp4_button = ttk.Button(
     root,
     text='Download Video',

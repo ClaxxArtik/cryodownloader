@@ -13,5 +13,5 @@ This project uses the libraries: tkinter and yt-dlp
 - Create audio and video files if they don't exist
 - Requirements file
 - Executable app
-- Send downloaded files to downloads
+- Send downl
   
