@@ -3,3 +3,4 @@ downloads/video/*
 src/__pycache__/
 CryoDownloader
 *CryoDownloader.spec
+*CryoDownloader.exe
