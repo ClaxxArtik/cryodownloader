@@ -1,3 +1,5 @@
 downloads/audio/*
 downloads/video/*
 src/__pycache__/
+CryoDownloader
+*CryoDownloader.spec
