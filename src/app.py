@@ -12,6 +12,10 @@ class App(tk.Tk):
         self.geometry("900x600")
         self.resizable(False, False)
 
+        # Create instances of the classes
+        self.downloader = dw.Download()
+        self.opener = dw.Open()
+
         # frame
         self.frame = ttk.Frame(self)
         self.frame.pack(expand=True)
@@ -30,22 +34,22 @@ class App(tk.Tk):
 
         # audio directory button
         self.audio_dir_button = ttk.Button(self.button_frame, text="📁", width=3)
-        self.audio_dir_button["command"] = dw.Open.audio
+        self.audio_dir_button["command"] = self.opener.audio
         self.audio_dir_button.pack(ipadx=5, ipady=5, side=tk.LEFT, padx=(10, 5))
 
         # download audio button
         self.dw_audio_button = ttk.Button(self.button_frame, text="Download audio")
-        self.dw_audio_button["command"] = lambda: dw.Download.audio(self.url.get())
+        self.dw_audio_button["command"] = lambda: self.downloader.audio(self.url.get())
         self.dw_audio_button.pack(ipadx=5, ipady=5, side=tk.LEFT, padx=(5, 5))
 
         # download video button
         self.dw_video_button = ttk.Button(self.button_frame, text="Download video")
-        self.dw_video_button["command"] = lambda: dw.Download.video(self.url.get())
+        self.dw_video_button["command"] = lambda: self.downloader.video(self.url.get())
         self.dw_video_button.pack(ipadx=5, ipady=5, side=tk.LEFT, padx=(5, 5))
 
         # video directory button
         self.video_dir_button = ttk.Button(self.button_frame, text="📁", width=3)
-        self.video_dir_button["command"] = dw.Open.video
+        self.video_dir_button["command"] = self.opener.video
         self.video_dir_button.pack(ipadx=5, ipady=5, side=tk.LEFT, padx=(10, 5))
 
 
