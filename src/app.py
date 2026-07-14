@@ -1,14 +1,19 @@
 import downloader as dw
 import tkinter as tk
 from customtkinter import *
+import ctypes
 
 
 class App(CTk):
     def __init__(self):
         super().__init__()
 
+        myappid = "CryoDownloader"  # arbitrary string
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
         # configure the root window
         self.title("CryoDownloader")
+        self.iconbitmap("assets/icon.ico")
         self.geometry("900x600")
         self.resizable(False, False)
 
