@@ -8,14 +8,14 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
     def __init__(self):
         super().__init__()
 
-        myappid = "CryoDownloader"
+        myappid = "CryoDL"
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
         # set the appearance mode to dark
         ctk.set_appearance_mode("dark")
 
         # configure the root window
-        self.title("CryoDownloader")
+        self.title("CryoDL")
         self.iconbitmap("assets/icon.ico")
         self.geometry("900x600")
         self.resizable(False, False)
@@ -42,7 +42,7 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
 
         # title
         self.title_label = ctk.CTkLabel(
-            self.frame, text="CryoDownloader", font=("Arial", 30, "bold")
+            self.frame, text="CryoDL", font=("Arial", 30, "bold")
         )
         self.title_label.pack(pady=(0, 10))
 
@@ -74,7 +74,7 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
         self.audio_dir_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(10, 5))
 
         # download audio button
-        self.dw_audio_button = ctk.CTkButton(self.button_frame, text="Download audio")
+        self.dw_audio_button = ctk.CTkButton(self.button_frame, text="Download Audio")
         self.dw_audio_button.configure(
             command=lambda: self.downloader.audio(self.url.get()),
             fg_color="#37A9B1",
@@ -84,7 +84,7 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
         self.dw_audio_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(5, 5))
 
         # download video button
-        self.dw_video_button = ctk.CTkButton(self.button_frame, text="Download video")
+        self.dw_video_button = ctk.CTkButton(self.button_frame, text="Download Video")
         self.dw_video_button.configure(
             command=lambda: self.downloader.video(self.url.get()),
             fg_color="#37A9B1",
