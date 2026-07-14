@@ -1,6 +1,7 @@
 import downloader as dw
 import customtkinter as ctk  # Changed this import
 import ctypes
+from PIL import Image
 
 
 class App(ctk.CTk):  # Use ctk.CTk instead of CTk
@@ -25,13 +26,25 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
         self.downloader = dw.Download()
         self.opener = dw.Open()
 
+        # Load icon
+        self.icon_image = Image.open("assets/icon.ico")
+        self.icon = ctk.CTkImage(
+            light_image=self.icon_image, dark_image=self.icon_image, size=(50, 50)
+        )
+
         # frame
         self.frame = ctk.CTkFrame(self, fg_color="#183335")
         self.frame.pack(expand=True)
 
-        # label
-        self.label = ctk.CTkLabel(self.frame, text="Youtube URL:")
-        self.label.pack(pady=10)
+        # icon
+        self.icon_label = ctk.CTkLabel(self.frame, image=self.icon, text="")
+        self.icon_label.pack(pady=(15, 5))
+
+        # title
+        self.title_label = ctk.CTkLabel(
+            self.frame, text="CryoDownloader", font=("Arial", 30, "bold")
+        )
+        self.title_label.pack(pady=(0, 10))
 
         # url entry
         self.url = ctk.CTkEntry(
@@ -40,6 +53,9 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
             justify="center",
             fg_color="#09191B",
             border_color="#406F72",
+            placeholder_text="Enter URL here",
+            placeholder_text_color="#1F504C",
+            font=("Arial", 14, "italic"),
         )
         self.url.pack()
 
@@ -50,7 +66,10 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
         # audio directory button
         self.audio_dir_button = ctk.CTkButton(self.button_frame, text="📁", width=3)
         self.audio_dir_button.configure(
-            command=self.opener.audio, fg_color="#37A9B1", hover_color="#2B7A8B"
+            command=self.opener.audio,
+            fg_color="#37A9B1",
+            hover_color="#2B7A8B",
+            font=("Arial", 14, "bold"),
         )
         self.audio_dir_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(10, 5))
 
@@ -60,6 +79,7 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
             command=lambda: self.downloader.audio(self.url.get()),
             fg_color="#37A9B1",
             hover_color="#2B7A8B",
+            font=("Arial", 14, "bold"),
         )
         self.dw_audio_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(5, 5))
 
@@ -69,13 +89,17 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
             command=lambda: self.downloader.video(self.url.get()),
             fg_color="#37A9B1",
             hover_color="#2B7A8B",
+            font=("Arial", 14, "bold"),
         )
         self.dw_video_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(5, 5))
 
         # video directory button
         self.video_dir_button = ctk.CTkButton(self.button_frame, text="📁", width=3)
         self.video_dir_button.configure(
-            command=self.opener.video, fg_color="#37A9B1", hover_color="#2B7A8B"
+            command=self.opener.video,
+            fg_color="#37A9B1",
+            hover_color="#2B7A8B",
+            font=("Arial", 14, "bold"),
         )
         self.video_dir_button.pack(ipadx=5, ipady=5, side=ctk.LEFT, padx=(5, 10))
 
