@@ -2,6 +2,16 @@ import downloader as dw
 import customtkinter as ctk  # Changed this import
 import ctypes
 from PIL import Image
+import sys
+import os
+
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 class App(ctk.CTk):  # Use ctk.CTk instead of CTk
@@ -16,7 +26,8 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
 
         # configure the root window
         self.title("CryoDL")
-        self.iconbitmap("assets/icon.ico")
+        icon_path = resource_path("assets/icon.ico")
+        self.iconbitmap(icon_path)
         self.geometry("900x600")
         self.resizable(False, False)
 
@@ -27,7 +38,7 @@ class App(ctk.CTk):  # Use ctk.CTk instead of CTk
         self.opener = dw.Open()
 
         # Load icon
-        self.icon_image = Image.open("assets/icon.ico")
+        self.icon_image = Image.open(icon_path)
         self.icon = ctk.CTkImage(
             light_image=self.icon_image, dark_image=self.icon_image, size=(50, 50)
         )
